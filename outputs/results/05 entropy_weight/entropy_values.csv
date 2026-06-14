@@ -1,0 +1,6 @@
+﻿Indicator,Entropy,Variability
+grant_ratio,0.876203,中等
+participant_ratio,0.839552,中等
+discount_rate,0.995494,低（值趋于一致）
+waiting_period_adj,0.99528,低（值趋于一致）
+validity_period,0.989292,低（值趋于一致）

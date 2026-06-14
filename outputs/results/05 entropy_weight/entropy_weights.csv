@@ -1,0 +1,6 @@
+﻿Indicator,Diversity Coefficient,Weight,Rank
+participant_ratio,0.160448,0.527479,1
+grant_ratio,0.123797,0.406987,2
+validity_period,0.010708,0.035203,3
+waiting_period_adj,0.00472,0.015517,4
+discount_rate,0.004506,0.014814,5

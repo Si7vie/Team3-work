@@ -1,0 +1,6 @@
+﻿Indicator,Entropy,Diversity Coefficient,Rank
+participant_ratio,0.839552,0.160448,1
+grant_ratio,0.876203,0.123797,2
+validity_period,0.989292,0.010708,3
+waiting_period_adj,0.99528,0.00472,4
+discount_rate,0.995494,0.004506,5

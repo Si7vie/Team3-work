@@ -1,0 +1,6 @@
+﻿Indicator,Min,Max,Missing Values,"Range [0,1]",No Missing,Valid
+grant_ratio,0.0,1.0,0,True,True,True
+participant_ratio,0.0,1.0,0,True,True,True
+discount_rate,0.0,1.0,0,True,True,True
+waiting_period_adj,0.0,1.0,0,True,True,True
+validity_period,0.0,1.0,0,True,True,True
