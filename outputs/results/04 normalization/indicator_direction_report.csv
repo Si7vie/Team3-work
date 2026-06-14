@@ -1,0 +1,6 @@
+﻿Indicator,Direction,Economic Meaning
+grant_ratio,Positive,授予比例越高，说明给予员工的股权激励力度越大
+participant_ratio,Positive,参与比例越高，说明更多员工能够分享股权激励
+discount_rate,Positive,折扣率越高，说明员工获得的价格优惠越大
+validity_period,Positive,有效期越长，说明长期激励价值越强
+waiting_period,Negative,等待期越长，员工实现收益所需等待时间越长

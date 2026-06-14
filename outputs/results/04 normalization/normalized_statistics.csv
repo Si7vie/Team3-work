@@ -1,0 +1,6 @@
+﻿Variable,Mean,Median,Std,Min,Max
+grant_ratio,0.1707,0.0469,0.2056,0.0,1.0
+participant_ratio,0.1365,0.0469,0.2151,0.0,1.0
+discount_rate,0.6214,0.5543,0.1304,0.0,1.0
+waiting_period_adj,0.9301,1.0,0.1773,0.0,1.0
+validity_period,0.3673,0.3333,0.1223,0.0,1.0

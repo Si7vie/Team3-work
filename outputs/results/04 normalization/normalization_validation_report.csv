@@ -1,0 +1,6 @@
+﻿Variable,Negative Values,Values > 1,Missing Values,Actual Min,Actual Max,Min = 0,Max = 1
+grant_ratio,0,0,0,0.0,1.0,True,True
+participant_ratio,0,0,0,0.0,1.0,True,True
+discount_rate,0,0,0,0.0,1.0,True,True
+waiting_period_adj,0,0,0,0.0,1.0,True,True
+validity_period,0,0,0,0.0,1.0,True,True
