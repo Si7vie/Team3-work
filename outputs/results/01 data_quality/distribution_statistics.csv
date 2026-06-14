@@ -1,0 +1,6 @@
+﻿Variable,Skewness,Kurtosis,Skewness Interpretation,Kurtosis Interpretation
+grant_ratio,1.4269,1.7128,严重右偏,厚尾分布
+participant_ratio,3.2942,13.6759,严重右偏,极端厚尾
+discount_rate,0.2219,2.2919,近似对称,厚尾分布
+waiting_period,2.81,7.2132,严重右偏,极端厚尾
+validity_period,1.1186,6.0529,严重右偏,极端厚尾

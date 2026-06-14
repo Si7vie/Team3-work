@@ -1,0 +1,14 @@
+﻿Variable,Missing Count,Missing Rate (%)
+doc_id,0,0.0
+company_name,0,0.0
+stock_code,0,0.0
+grant_amount,2,1.0
+grant_ratio,0,0.0
+participant_count,2,1.0
+exercise_price,2,1.0
+market_price,4,2.0
+discount_rate,4,2.0
+waiting_period,2,1.0
+validity_period,2,1.0
+employee_count,6,3.0
+participant_ratio,6,3.0

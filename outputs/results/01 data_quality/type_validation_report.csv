@@ -1,0 +1,6 @@
+﻿Variable,Data Type,Is Numeric,Has %,Has Chinese,Has Space,Has Special Char
+grant_ratio,float64,True,False,False,False,False
+participant_ratio,float64,True,False,False,False,False
+discount_rate,float64,True,False,False,False,False
+waiting_period,float64,True,False,False,False,False
+validity_period,float64,True,False,False,False,False
