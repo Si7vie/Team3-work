@@ -1,0 +1,253 @@
+project:
+  name: Equity Incentive Generosity Score Evaluation
+  short_name: generosity_score_project
+  course: Data Mining and Machine Learning
+  objective: >
+    Construct an objective evaluation framework for measuring
+    the generosity of equity incentive plans among Chinese listed companies
+    using the Entropy Weight Method.
+
+dataset:
+
+  raw_data:
+    path: data/csvdata/raw/final_data_unprocessed.csv
+    description: Raw equity incentive plan dataset
+
+  cleaned_data:
+    path: data/csvdata/cleaned/cleaned_equity_incentive_data.csv
+    description: Cleaned dataset after missing value and outlier treatment
+
+sample:
+
+  scope: Chinese Listed Companies
+  year: 2021-2025
+  sample_size: 192
+
+indicators:
+
+  grant_ratio:
+    description: Equity granted as a percentage of total shares
+    direction: positive
+
+  participant_ratio:
+    description: Incentive participants as a percentage of total employees
+    direction: positive
+
+  discount_rate:
+    description: Pricing discount rate of granted equity
+    direction: positive
+
+  waiting_period:
+    description: Vesting waiting period (months)
+    direction: negative
+
+  validity_period:
+    description: Validity period of incentive plan (months)
+    direction: positive
+
+methodology:
+
+  weighting_method:
+    Entropy Weight Method
+
+  normalization:
+    Min-Max Scaling
+
+  correlation_analysis:
+    Pearson Correlation
+
+  robustness_check:
+    Spearman Rank Correlation
+
+  clustering:
+    K-Means Clustering
+
+pipeline:
+
+  step1:
+
+    name: Data Quality Assessment
+
+    script: src/data_process/check_data_quality.py
+
+    input:
+      - data/csvdata/raw/final_data_unprocessed.csv
+
+    output:
+      - outputs/results/01 data_quality/data_overview_summary.csv
+      - outputs/results/01 data_quality/descriptive_statistics.csv
+      - outputs/results/01 data_quality/outlier_detection_report.csv
+      - figures/data_quality/discount_rate_distribution.png
+      - figures/data_quality/participant_ratio_distribution.png
+      - figures/data_quality/grant_ratio_distribution.png
+      - figures/data_quality/waiting_period_distribution.png
+      - figures/data_quality/validity_period_distribution.png
+
+  step2:
+
+    name: Data Cleaning
+
+    script: src/data_process/data_cleaning_v3.py
+
+    input:
+      - data/csvdata/raw/final_data_unprocessed.csv
+
+    output:
+      - data/csvdata/cleaned/cleaned_equity_incentive_data.csv
+      - outputs/reports/data_cleaning_report.md
+      - outputs/reports/data_cleaning_report.md
+      - outputs/results/02 data_cleaning/cleaning_validation_report.csv
+      - outputs/results/02 data_cleaning/winsorization_report.csv
+      - outputs/results/02 data_cleaning/missing_value_cleaning_report.csv
+      - outputs/results/02 data_cleaning/descriptive_statistics_cleaned.csv
+      - outputs/results/02 data_cleaning/duplicate_cleaning_report.csv
+      - outputs/results/02 data_cleaning/outlier_recheck_report.csv
+      - outputs/results/02 data_cleaning/participant_ratio_winsorized.csv
+
+    
+  step3:
+
+    name: Correlation Analysis
+
+    script: src/data_process/correlation_analysis_v2.py
+
+    input:
+      - data/csvdata/cleaned/cleaned_equity_incentive_data.csv
+
+    output:
+      - outputs/results/03 correlation_analysis/correlation_matrix.csv
+      - outputs/results/03 correlation_analysis/descriptive_statistics_final.csv
+      - outputs/results/03 correlation_analysis/spearman_correlation_matrix.csv
+      - outputs/reports/correlation_analysis_report.md
+      - figures/correlation_analysis/pearson_heatmap.png
+      - figures/correlation_analysis/spearman_heatmap.png
+
+  step4:
+
+    name: Indicator Direction Adjustment and Normalization
+
+    script: src/data_process/data_processing_v2.py
+
+    input:
+      - data/cleaned/cleaned_equity_incentive_data.csv
+
+    output:
+      - figures/normalization_output/after_normalization_histograms.png
+      - figures/normalization_output/normalization_comparison.png
+      - outputs/reports/normalization_report.md
+      - outputs/results/04 normalization/direction_adjusted_data.csv
+      - outputs/results/04 normalization/entropy_input_data.csv
+      - outputs/results/04 normalization/indicator_direction_report.csv
+      - outputs/results/04 normalization/normalization_validation_report.csv
+      - outputs/results/04 normalization/normalized_statistics.csv
+
+  step5:
+
+    name: Entropy Weight Calculation
+
+    script: src/entropy_weight.py
+
+    input:
+      - data/csvdata/cleaned/cleaned_equity_incentive_data.csv
+
+    output:
+      - outputs/reports/entropy_weight_report.md
+      - outputs/results/05 entropy_weight/diversity_coefficient.csv
+      - outputs/results/05 entropy_weight/entropy_input_validation.csv
+      - outputs/results/05 entropy_weight/entropy_values.csv
+      - outputs/results/05 entropy_weight/entropy_weights.csv
+      - outputs/results/05 entropy_weight/proportion_matrix.csv
+
+
+  step6:
+
+    name: Generosity Score Construction and Ranking
+
+    script: src/generosity_score_v2.py
+
+    input:
+      - outputs/entropy/entropy_weights.csv
+      - data/processed/normalized_data.csv
+
+    output:
+      - outputs/results/06 ranking_final/bottom10_generosity_companies_final.csv
+      - outputs/results/06 ranking_final/generosity_ranking_final.csv
+      - outputs/results/06 ranking_final/generosity_scores_final.csv
+      - outputs/results/06 ranking_final/top10_generosity_companies_final.csv
+      - outputs/reports/ranking_analysis_report.md
+      - figures/ranking_final/bottom20_generosity_companies.png
+      - figures/ranking_final/generosity_score_boxplot.png
+      - figures/ranking_final/top20_generosity_companies.png
+      - figures/ranking_final/top_vs_bottom_comparison.png
+      - figures/ranking_final/generosity_score_distribution.png
+
+  step7:
+
+    name: Robustness Check
+
+    script: src/step7_robustness_and_clustering_v2.py
+
+    input:
+      - outputs/ranking/generosity_scores_final.csv
+
+    output:
+      - outputs/reports/robustness_report.md
+      - outputs/results/07 robustness/cluster_profile.csv
+      - outputs/results/07 robustness/top20_stability.csv
+      - outputs/results/07 robustness/ranking_stability_report.csv
+      - outputs/results/07 robustness/cluster_result.csv
+      - outputs/results/07 robustness/equal_weight_scores.csv
+      - figures/robustness/cluster_profile_bar.png
+      - figures/robustness/cluster_visualization.png
+      - figures/robustness/ranking_comparison.png
+
+  step7_1:
+
+    name: cluster optimization
+
+    script: src/data_process/cluster_optimization_v2.py
+
+    input:
+      - outputs/ranking/generosity_scores_final.csv
+
+    output:
+      - outputs/results/07 robustness/cluster/cluster_optimization/cluster_evaluation.csv
+      - outputs/results/07 robustness/cluster/cluster_optimization/cluster_profile_v2.csv
+      - outputs/results/07 robustness/cluster/cluster_optimization/cluster_result_v2.csv
+      - outputs/results/07 robustness/cluster/cluster_optimization/cluster_standardized_data.csv
+      - outputs/reports/cluster_analysis_v2.md
+
+  step7_2:
+
+    name: Cluster Validation
+
+    script: src/cluster_validation_v2.py
+
+    input:
+      - outputs/cluster/cluster_result.csv
+
+    output:
+      - outputs/results/07 robustness/cluster/cluster_validation/anova_test_results.csv
+      - outputs/results/07 robustness/cluster/cluster_validation/cluster_profile_enhanced.csv
+      - outputs/results/07 robustness/cluster/cluster_validation/cluster_small_group_companies.csv
+      - outputs/reports/small_cluster_analysis.md
+      - outputs/reports/cluster_naming_report.md
+      - outputs/reports/cluster_validation_report.md
+parse:
+  provider: "mineru"
+  mineru:
+    api_base_url: "https://mineru.net"
+    api_key_env: "MINERU_API_KEY"
+    model_version: "vlm"
+    language: "ch"
+    poll_interval_seconds: 10
+    timeout_seconds: 1800
+extract:
+  provider: "rule"
+  llm:
+    base_url_env: "LLM_BASE_URL"
+    api_key_env: "LLM_API_KEY"
+    model_env: "LLM_MODEL"
+    temperature: 0
+    max_tokens: 2048
+    timeout_seconds: 60

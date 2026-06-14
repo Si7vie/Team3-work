@@ -1,0 +1,28 @@
+target_sections:
+  equity_incentive:
+    include_keywords:
+       - "激励对象的确定依据和范围"
+       - "股票来源"
+       - "数量和分配"
+       - "授予数量"
+       - "拟授出的权益情况"
+       - "有效期"
+       - "授予日"
+       - "等待期"
+       - "限售期"
+       - "解除限售安排"
+       - "行权安排"
+       - "授予价格"
+       - "行权价格"
+
+    exclude_keywords:
+      - "目录"
+      - "释义"
+
+    end_markers:
+      - "公司治理"
+      - "备查文件"
+
+    min_chars: 200
+
+    page_expansion: 1
