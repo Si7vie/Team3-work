@@ -1,0 +1,5 @@
+﻿Analysis,Value,Description
+Entropy Top20,20,Entropy Weight Method Top 20
+Equal Weight Top20,20,Equal Weight Method Top 20
+Intersection,13,Number of companies in both Top20
+Overlap Ratio,65.0%,Overlap percentage
