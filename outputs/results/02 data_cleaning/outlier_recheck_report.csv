@@ -1,0 +1,6 @@
+﻿Variable,Q1,Q3,IQR,Lower Bound,Upper Bound,Outlier Count,Outlier Rate (%)
+grant_ratio,1.0,15.7859,14.7859,-21.1788,37.9648,5,2.6042
+participant_ratio,1.5948,12.8037,11.2089,-15.2186,29.617,23,11.9792
+discount_rate,-0.05,19.9525,20.0025,-30.0538,49.9563,1,0.5208
+waiting_period,12.0,12.0,0.0,12.0,12.0,46,23.9583
+validity_period,48.0,60.0,12.0,30.0,78.0,6,3.125

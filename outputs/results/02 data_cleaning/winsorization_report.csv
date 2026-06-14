@@ -1,0 +1,6 @@
+﻿Variable,Treatment,P1,P99,Original Min,Original Max,New Min,New Max,Clipped Count
+grant_ratio,保留原值,,,,,,,0
+participant_ratio,1% Winsorization,0.1427,90.2571,0.028,156.2221,0.1427,90.2571,4
+discount_rate,保留原值,,,,,,,0
+waiting_period,保留原值,,,,,,,0
+validity_period,保留原值,,,,,,,0
