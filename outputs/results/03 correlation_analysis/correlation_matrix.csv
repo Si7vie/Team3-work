@@ -1,0 +1,6 @@
+﻿,grant_ratio,participant_ratio,discount_rate,waiting_period,validity_period
+grant_ratio,1.0,-0.0341,0.0498,-0.1616,-0.114
+participant_ratio,-0.0341,1.0,-0.0175,0.0492,0.0794
+discount_rate,0.0498,-0.0175,1.0,-0.1071,0.0164
+waiting_period,-0.1616,0.0492,-0.1071,1.0,0.0924
+validity_period,-0.114,0.0794,0.0164,0.0924,1.0
